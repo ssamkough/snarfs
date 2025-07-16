@@ -112,7 +112,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: 0.4em;
-		width: 600px;
+		max-width: 600px;
 		font-size: 1.4em;
 	}
 	form > input {
@@ -129,6 +129,10 @@
 		display: flex;
 		flex-direction: column;
 		gap: 1em;
+	}
+	ul > li {
+		padding-inline: 0.2em;
+		word-wrap: break-word;
 	}
 	ul > li > a {
 		font-size: 1.4em;

@@ -27,11 +27,14 @@
 	header {
 		display: flex;
 		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 0.4em;
 		font-size: 1.2em;
 	}
 	header > div {
 		display: flex;
 		gap: 1em;
+		flex-wrap: wrap;
 	}
 	header > div > span {
 		font-style: italic;
