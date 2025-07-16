@@ -144,6 +144,6 @@
 	}
 	ul > li > div {
 		display: flex;
-		justify-content: space-between;
+		gap: 1em;
 	}
 </style>
