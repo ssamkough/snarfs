@@ -1,6 +1,6 @@
 <script>
 	let { data, children } = $props();
-	let { supabase } = $derived(data);
+	let { supabase, user } = $derived(data);
 
 	const logout = async () => {
 		const { error } = await supabase.auth.signOut();
@@ -14,8 +14,29 @@
 	<nav>
 		<a href="/">Home</a>
 	</nav>
-	<button onclick={logout}>Logout</button>
+	<div>
+		<span>{user?.email}</span>
+		<button onclick={logout}>Logout</button>
+	</div>
 </header>
 <main>
 	{@render children()}
 </main>
+
+<style>
+	header {
+		display: flex;
+		justify-content: space-between;
+		font-size: 1.2em;
+	}
+	header > div {
+		display: flex;
+		gap: 1em;
+	}
+	header > div > span {
+		font-style: italic;
+	}
+	header button {
+		font-size: 1em;
+	}
+</style>

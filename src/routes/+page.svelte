@@ -9,6 +9,6 @@
 	{#if session}
 		<a href="/dashboard">go to dashboard</a>
 	{:else}
-		<a href="/login">login</a>
+		<a href="/auth">login</a>
 	{/if}
 </h2>
