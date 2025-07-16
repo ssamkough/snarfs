@@ -91,7 +91,13 @@
 				<div>
 					<span>{formattedDate(link.created_at)}</span>
 					<span>{link.status}</span>
-					<span>{link.is_favorited}</span>
+					<span
+						><img
+							src={`/${link.is_favorited ? 'filled' : 'empty'}-star.png`}
+							alt=""
+							width="20"
+						/></span
+					>
 				</div>
 			</li>
 		{/each}
@@ -136,5 +142,9 @@
 	}
 	ul > li > a {
 		font-size: 1.4em;
+	}
+	ul > li > div {
+		display: flex;
+		justify-content: space-between;
 	}
 </style>
