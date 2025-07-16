@@ -77,7 +77,6 @@
 </script>
 
 <div>
-	<h2>Dashboard</h2>
 	<form onsubmit={handleSubmit}>
 		<label for="url">Add a link</label>
 		<input autofocus name="url" type="url" />
