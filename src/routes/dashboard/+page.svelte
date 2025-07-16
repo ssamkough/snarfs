@@ -5,6 +5,15 @@
 	let { data } = $props();
 	let { links, supabase, user } = $derived(data);
 
+	function formatUrl(url: string) {
+		let newUrl = url;
+
+		// remove trailing slash
+		newUrl = newUrl.replace(/\/$/, '');
+
+		return newUrl;
+	}
+
 	const handleSubmit: EventHandler<SubmitEvent, HTMLFormElement> = async (evt) => {
 		evt.preventDefault();
 		if (!evt.target) return;
@@ -12,11 +21,26 @@
 
 		const url = (new FormData(form).get('url') ?? '') as string;
 		if (!url) {
-			console.debug('Failed to retrieve URL!');
+			const message = 'Failed to retrieve URL!';
+			alert(message);
+			console.debug(message);
 			return;
 		}
 
-		const { data, error: linkError } = await supabase.from('Link').insert({ url }).select();
+		const rawUrl = new URL(url);
+		if (!rawUrl) {
+			const message = 'Not a URL!';
+			alert(message);
+			console.error(message);
+			return;
+		}
+
+		const cleanUrl = formatUrl(url);
+
+		const { data, error: linkError } = await supabase
+			.from('Link')
+			.insert({ url: cleanUrl })
+			.select();
 		if (linkError) {
 			console.error(linkError);
 			return;
@@ -32,6 +56,7 @@
 
 		invalidate('supabase:db:Link');
 		form.reset();
+		document.getElementsByTagName('input')[0].focus();
 	};
 
 	function formattedUrl(urlString: string) {
@@ -92,6 +117,7 @@
 	}
 	form > input {
 		height: 30px;
+		font-size: 1.2em;
 	}
 	form > button {
 		width: fit-content;
