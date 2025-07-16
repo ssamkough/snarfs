@@ -12,14 +12,17 @@
 
 <header>
 	<nav>
-		<a href="/">Home</a>
+		<a href="/"><img src="logo.png" alt="snarfs logo" width="60" /></a>
 	</nav>
 	<div>
 		<span>{user?.email}</span>
 		<button onclick={logout}>Logout</button>
 	</div>
 </header>
+<br />
+<hr />
 <main>
+	<h1>snarfs</h1>
 	{@render children()}
 </main>
 
@@ -41,5 +44,9 @@
 	}
 	header button {
 		font-size: 1em;
+	}
+	h1 {
+		padding: 0px;
+		margin: 0px;
 	}
 </style>
