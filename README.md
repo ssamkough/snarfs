@@ -1,4 +1,4 @@
-# snarfs
+# snarfs 🍽️
 
 i wanna **snarf** up content. i just cant do it all at once. so i save em for later
 
