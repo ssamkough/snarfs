@@ -92,7 +92,7 @@
 					<span>{link.status}</span>
 					<span
 						><img
-							src={`/${link.is_favorited ? 'filled' : 'empty'}-star.png`}
+							src={`/assets/${link.is_favorited ? 'filled' : 'empty'}-star.png`}
 							alt=""
 							width="20"
 						/></span

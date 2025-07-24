@@ -11,7 +11,7 @@
 </script>
 
 <header>
-	<img src="logo.png" alt="snarfs logo" width="60" />
+	<img src="logo.svg" alt="snarfs logo" width="60" />
 	<button onclick={logout}>Logout</button>
 </header>
 <main>
