@@ -83,14 +83,16 @@
 </script>
 
 <div>
-	<form onsubmit={handleSubmit}>
-		<label for="url">Add a link</label>
-		<input autofocus name="url" type="url" />
-		<button type="submit">submit</button>
-	</form>
-	<div>
-		<h2>Links: {status}</h2>
-		<SwitchButton {status} />
+	<div class="container">
+		<form onsubmit={handleSubmit}>
+			<label for="url">Add a link</label>
+			<input autofocus name="url" type="url" />
+			<button type="submit">submit</button>
+		</form>
+		<div>
+			<h2>Links: {status}</h2>
+			<SwitchButton {status} />
+		</div>
 	</div>
 	<ul>
 		{#each links as link}
@@ -112,6 +114,9 @@
 </div>
 
 <style>
+	.container {
+		width: 100svw;
+	}
 	div:has(form) {
 		padding-top: 1em;
 		display: flex;
@@ -125,7 +130,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: 0.4em;
-		/* max-width: 600px; */
+		max-width: 600px;
 		font-size: 1.4em;
 	}
 	form > input {
