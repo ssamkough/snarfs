@@ -17,4 +17,4 @@
 	}
 </script>
 
-<button on:click={update}>{newStatus}</button>
+<button on:click={update}>{status === 'save' ? `📂` : `✅`}</button>

@@ -98,15 +98,7 @@
 				<div>
 					<a href={link.url}>{formattedUrl(link.url)}</a>
 					<div>
-						<span>{formattedDate(link.created_at)}</span>
-						<span>{link.status}</span>
-						<span
-							><img
-								src={`/assets/${link.is_favorited ? 'filled' : 'empty'}-star.png`}
-								alt=""
-								width="20"
-							/></span
-						>
+						{formattedDate(link.created_at)}
 					</div>
 				</div>
 				<div>
@@ -133,7 +125,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: 0.4em;
-		max-width: 600px;
+		/* max-width: 600px; */
 		font-size: 1.4em;
 	}
 	form > input {
@@ -151,6 +143,7 @@
 	}
 	ul {
 		margin: 0px;
+		padding: 0px;
 		display: flex;
 		flex-direction: column;
 		gap: 1em;
@@ -160,9 +153,14 @@
 		word-wrap: break-word;
 		display: flex;
 		justify-content: space-between;
+		gap: 0.2em;
+	}
+	div:has(a) {
+		width: 200px;
 	}
 	ul li a {
-		font-size: 1.4em;
+		text-overflow: ellipsis;
+		font-size: 1.2em;
 	}
 	ul > li > div:nth-child(2) {
 		display: flex;

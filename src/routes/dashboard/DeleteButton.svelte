@@ -20,4 +20,4 @@
 	}
 </script>
 
-<button on:click={trash}>trash</button>
+<button on:click={trash}>🗑️</button>
