@@ -161,7 +161,7 @@
 		gap: 0.2em;
 	}
 	div:has(a) {
-		width: 200px;
+		width: 240px;
 	}
 	ul li a {
 		text-overflow: ellipsis;
@@ -169,7 +169,7 @@
 	}
 	ul > li > div:nth-child(2) {
 		display: flex;
-		gap: 1em;
+		gap: 0.4em;
 		height: 50px;
 	}
 	ul > li > div > div {
