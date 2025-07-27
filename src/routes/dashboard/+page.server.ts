@@ -10,14 +10,17 @@ type Link = {
 	is_favorited: boolean;
 };
 
-export const load: PageServerLoad = async ({ depends, locals: { supabase } }) => {
+export const load: PageServerLoad = async ({ params, url, depends, locals: { supabase } }) => {
 	depends('supabase:db:Link');
+
+	const status = url.searchParams.get('status') ?? 'save';
 
 	let links: Link[] = [];
 	try {
 		const { data, error } = await supabase
 			.from('Link')
 			.select()
+			.eq('status', status)
 			.order('created_at', { ascending: false });
 
 		if (error) {
@@ -29,5 +32,5 @@ export const load: PageServerLoad = async ({ depends, locals: { supabase } }) =>
 		console.error(error);
 	}
 
-	return { links };
+	return { links, status };
 };

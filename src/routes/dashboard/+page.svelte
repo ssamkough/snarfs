@@ -1,9 +1,13 @@
 <script lang="ts">
 	import { invalidate } from '$app/navigation';
 	import type { EventHandler } from 'svelte/elements';
+	import DeleteButton from './DeleteButton.svelte';
+	import FavoriteButton from './FavoriteButton.svelte';
+	import SwitchButton from './SwitchButton.svelte';
+	import UpdateButton from './UpdateButton.svelte';
 
 	let { data } = $props();
-	let { links, supabase, user } = $derived(data);
+	let { links, status, supabase, user } = $derived(data);
 
 	function formatUrl(url: string) {
 		let newUrl = url;
@@ -43,6 +47,7 @@
 			.select();
 		if (linkError) {
 			console.error(linkError);
+			alert(linkError.message);
 			return;
 		}
 
@@ -51,6 +56,7 @@
 			.insert({ user_id: user?.id, link_id: data[0].id });
 		if (userLinkError) {
 			console.error(userLinkError);
+			alert(userLinkError.message);
 			return;
 		}
 
@@ -82,21 +88,31 @@
 		<input autofocus name="url" type="url" />
 		<button type="submit">submit</button>
 	</form>
-	<h2>Links</h2>
+	<div>
+		<h2>Links: {status}</h2>
+		<SwitchButton {status} />
+	</div>
 	<ul>
 		{#each links as link}
 			<li>
-				<a href={link.url}>{formattedUrl(link.url)}</a>
 				<div>
-					<span>{formattedDate(link.created_at)}</span>
-					<span>{link.status}</span>
-					<span
-						><img
-							src={`/assets/${link.is_favorited ? 'filled' : 'empty'}-star.png`}
-							alt=""
-							width="20"
-						/></span
-					>
+					<a href={link.url}>{formattedUrl(link.url)}</a>
+					<div>
+						<span>{formattedDate(link.created_at)}</span>
+						<span>{link.status}</span>
+						<span
+							><img
+								src={`/assets/${link.is_favorited ? 'filled' : 'empty'}-star.png`}
+								alt=""
+								width="20"
+							/></span
+						>
+					</div>
+				</div>
+				<div>
+					<FavoriteButton id={link.id} isFavorited={link.is_favorited} {supabase} />
+					<UpdateButton id={link.id} status={link.status} {supabase} />
+					<DeleteButton id={link.id} url={link.url} {supabase} />
 				</div>
 			</li>
 		{/each}
@@ -129,6 +145,10 @@
 		font-size: 1em;
 		padding: 0.4em;
 	}
+	form + div {
+		display: flex;
+		justify-content: space-between;
+	}
 	ul {
 		margin: 0px;
 		display: flex;
@@ -138,11 +158,18 @@
 	ul > li {
 		padding-inline: 0.2em;
 		word-wrap: break-word;
+		display: flex;
+		justify-content: space-between;
 	}
-	ul > li > a {
+	ul li a {
 		font-size: 1.4em;
 	}
-	ul > li > div {
+	ul > li > div:nth-child(2) {
+		display: flex;
+		gap: 1em;
+		height: 50px;
+	}
+	ul > li > div > div {
 		display: flex;
 		gap: 1em;
 	}
