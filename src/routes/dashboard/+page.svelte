@@ -113,6 +113,7 @@
 
 <style>
 	div:has(form) {
+		max-width: 600px;
 		padding-top: 1em;
 		display: flex;
 		flex-direction: column;
@@ -125,7 +126,6 @@
 		display: flex;
 		flex-direction: column;
 		gap: 0.4em;
-		max-width: 600px;
 		font-size: 1.4em;
 	}
 	form > input {
@@ -155,12 +155,10 @@
 		justify-content: space-between;
 		gap: 0.2em;
 	}
-	div:has(> a) {
-		width: 240px;
-	}
 	ul li a {
 		text-overflow: ellipsis;
 		font-size: 1.2em;
+		word-break: break-all;
 	}
 	ul > li > div:nth-child(2) {
 		display: flex;
