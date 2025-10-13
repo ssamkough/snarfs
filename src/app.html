@@ -6,10 +6,12 @@
 		<link rel="icon" href="%sveltekit.assets%/favicon.ico" />
 		<link rel="apple-touch-icon" href="%sveltekit.assets%/apple-touch-icon.png" />
 		<title>snarfs</title>
-		<link rel="stylesheet" href="styles.css" />
+		<link rel="stylesheet" href="%sveltekit.assets%/styles/1-globals.css" />
+		<link rel="stylesheet" href="%sveltekit.assets%/styles/2-variables.css" />
+		<link rel="stylesheet" href="%sveltekit.assets%/styles/3-defaults.css" />
 		%sveltekit.head%
 	</head>
-	<body data-sveltekit-preload-data="hover">
+	<body data-sveltekit-preload-data="hover" class="color-scheme-wrapper">
 		<div style="display: contents">%sveltekit.body%</div>
 	</body>
 </html>
