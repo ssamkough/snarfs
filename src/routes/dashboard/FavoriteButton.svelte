@@ -15,6 +15,6 @@
 	}
 </script>
 
-<button on:click={update}
-	><img src={`/assets/${isFavorited ? 'filled' : 'empty'}-star.png`} alt="" width="30" /></button
+<button on:click={update} style="width: max-content;"
+	><img src={`/assets/${isFavorited ? 'filled' : 'empty'}-star.png`} alt="" width="20" /></button
 >

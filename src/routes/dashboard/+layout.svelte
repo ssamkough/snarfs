@@ -15,13 +15,13 @@
 		<img src="logo.svg" alt="snarfs logo" width="60" />
 		<button onclick={logout}>Logout</button>
 	</div>
-	<div>
+	<!-- <div>
 		<input id="color-mode" type="checkbox" name="color-mode" />
 		<label for="color-mode">
 			<span class="dark-mode-hide">Dark Mode</span>
 			<span class="light-mode-hide">Light Mode</span>
 		</label>
-	</div>
+	</div> -->
 </header>
 <main>
 	{@render children()}
