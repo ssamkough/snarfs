@@ -42,4 +42,7 @@
 		height: fit-content;
 		font-size: 1em;
 	}
+	main {
+		padding: 0.2em;
+	}
 </style>

@@ -18,3 +18,9 @@
 </script>
 
 <button on:click={update}>{status === 'save' ? `📂` : `✅`}</button>
+
+<style>
+	button {
+		font-size: 0.8em;
+	}
+</style>

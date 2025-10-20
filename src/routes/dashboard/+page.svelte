@@ -101,10 +101,19 @@
 						{formattedDate(link.created_at)}
 					</div>
 				</div>
-				<div>
-					<FavoriteButton id={link.id} isFavorited={link.is_favorited} {supabase} />
-					<UpdateButton id={link.id} status={link.status} {supabase} />
-					<DeleteButton id={link.id} url={link.url} {supabase} />
+				<div style="display: flex; flex-direction: column; gap: 0.2em;">
+					<div style="display: flex; gap: 0.2em;">
+						<FavoriteButton id={link.id} isFavorited={link.is_favorited} {supabase} />
+						<UpdateButton id={link.id} status={link.status} {supabase} />
+						<DeleteButton id={link.id} url={link.url} {supabase} />
+					</div>
+					<!-- TODO: add tags -->
+					<!-- <div>
+						<input width="" />
+					</div>
+					<div>
+						{link.tags}
+					</div> -->
 				</div>
 			</li>
 		{/each}

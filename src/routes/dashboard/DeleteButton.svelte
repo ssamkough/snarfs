@@ -21,3 +21,9 @@
 </script>
 
 <button on:click={trash}>🗑️</button>
+
+<style>
+	button {
+		font-size: 0.8em;
+	}
+</style>
